@@ -79,11 +79,12 @@ template "/etc/init/mirthconnect.conf" do
   })
 end
 
-template "#{node[:mirthconnect][:homedir]}/conf/mirth.properties" do
+template "#{node[:mirthconnect][:homedir]}/Mirth Connect/conf/mirth.properties" do
   source "mirth.properties.erb"
   mode 0600
-  owner "mirth"
-  group "root"
+  owner node[:mirthconnect][:user],
+  group node[:mirthconnect][:group]
+  
   variables({
     :dbtype => node[:mirthconnect][:dbtype],
     :dburl => node[:mirthconnect][:dburl],
