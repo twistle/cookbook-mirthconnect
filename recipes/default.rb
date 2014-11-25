@@ -33,15 +33,15 @@ package "openjdk-7-jdk"
 
 
 # Setup User/Group/Directory structure
-group node[:mirthconnect][:group]
+#group node[:mirthconnect][:group]
 
-user node[:mirthconnect][:user] do
-  supports :manage_home => true
-  gid node[:mirthconnect][:group]
-  comment "Mirth Connect"
-  home node[:mirthconnect][:homedir]
-  shell "/bin/bash"
-end
+#user node[:mirthconnect][:user] do
+#  supports :manage_home => true
+#  gid node[:mirthconnect][:group]
+#  comment "Mirth Connect"
+#  home node[:mirthconnect][:homedir]
+#  shell "/bin/bash"
+#end
 
 directory node[:mirthconnect][:homedir] do
   owner node[:mirthconnect][:user]
